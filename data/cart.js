@@ -38,6 +38,11 @@ export function addToCart(productId) {
   saveToStorage();
 }
 
+export function clearCart() {
+  cart = [];
+  saveToStorage();
+}
+
 export function removeFromCart(productId) {
   const newCart = [];
 
@@ -51,7 +56,7 @@ export function removeFromCart(productId) {
   saveToStorage();
 }
 
-export function updatedeliveryOptionsID(productId, deliveryOptionId) {
+export function updateDeliveryOption(productId, deliveryOptionId) {
   let matchingItem;
 
   cart.forEach((cartItem) => {
@@ -60,6 +65,7 @@ export function updatedeliveryOptionsID(productId, deliveryOptionId) {
     }
   });
 
-  matchingItem.deliveryOptionsId = deliveryOptionId;
+  matchingItem.deliveryOptionId = deliveryOptionId;
+
   saveToStorage();
 }
